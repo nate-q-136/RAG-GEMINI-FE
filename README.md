@@ -34,7 +34,7 @@ A frontend application designed for chat systems leveraging Google Gemini Pro wi
 
 1. **Clone the Repository**
 ```bash
-git clone https://github.com/your-username/rag-gemini-frontend.git
+git clone https://github.com/nate-q-136/RAG-GEMINI-FE.git
 cd rag-gemini-frontend
 ```
 
