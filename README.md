@@ -1,36 +1,142 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RAG Gemini Frontend
 
-## Getting Started
+A frontend application designed for chat systems leveraging Google Gemini Pro with Retrieval Augmented Generation (RAG) capabilities. This application allows users to interact with AI and upload documents for document-based conversations.
 
-First, run the development server:
+![Demo GIF](demo.gif)
 
+## 🌟 Features
+
+- **Real-time Chat Interface**
+- **File Upload Support** for:
+  - PDF
+  - DOCX
+  - CSV
+- **WebSocket Integration** for real-time communication
+- **Responsive Design**
+- **Loading States & Animations**
+
+## 🔧 Tech Stack
+
+- **Next.js 14** (React Framework)
+- **TypeScript**
+- **Tailwind CSS** (Styling)
+- **WebSocket** (Real-time Communication)
+
+## 🚀 Installation Guide
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+- WebSocket server endpoint
+
+### Setup Steps
+
+1. **Clone the Repository**
+```bash
+git clone https://github.com/your-username/rag-gemini-frontend.git
+cd rag-gemini-frontend
+```
+
+2. **Install Dependencies**
+```bash
+npm install
+# or
+yarn install
+```
+
+3. **Run the Development Server**
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔌 WebSocket Integration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Connection Setup
+```javascript
+const ws = new WebSocket('ws://your-backend-url/ws/chat/');
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Message Format
+```json
+// Send message
+{
+  "type": "chat",
+  "message": "string",
+  "attachments": [
+    {
+      "name": "file_name.pdf",
+      "url": "url_file"
+    }
+  ]
+}
 
-## Learn More
+// Receive message
+{
+  "message": "gemini_answer"
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Project Structure
+```
+rag_gemini_frontend/
+├── src/
+│   ├── components/        # React components
+│   │   ├── chat/         # Chat-related components
+│   │   └── ui/           # Common UI components
+│   ├── contexts/         # React contexts
+│   ├── hooks/            # Custom hooks
+│   ├── types/            # TypeScript types
+│   └── utils/            # Utility functions
+├── public/               # Static files
+└── next.config.js        # Next.js configuration
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔗 Key Components
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### ChatContainer
+- Main container for the chat interface
+- Manages WebSocket connection
+- Handles message display and sending
 
-## Deploy on Vercel
+### ChatInput
+- Manages user input and file uploads
+- Displays loading states
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### ChatMessages
+- Displays chat history
+- Auto-scroll functionality
+- Message formatting
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎨 Styling
+
+- **Tailwind CSS** for responsive design
+
+## 🔗 Useful Links
+
+- **[Backend Repository](https://github.com/your-username/rag-gemini-backend)**
+
+
+## 🔒 Security Guidelines
+
+- Never commit sensitive data to version control
+- Use environment variables for configuration
+- Implement robust error handling
+- Validate WebSocket connections to prevent vulnerabilities
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 👥 Authors
+
+- **Your Name** – [GitHub](https://github.com/your-username)
+
+## 🙏 Acknowledgments
+
+- **Next.js Team**
+- **Tailwind CSS Team**
+- **Open Source Community**
+
