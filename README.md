@@ -56,7 +56,7 @@ yarn dev
 
 ### Connection Setup
 ```javascript
-const ws = new WebSocket('ws://your-backend-url/ws/chat/');
+const ws = new WebSocket('ws://your-backend-url/ws/chat/2');
 ```
 
 ### Message Format
@@ -132,7 +132,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## 👥 Authors
 
-- **Your Name** – [GitHub](https://github.com/your-username)
+- **Nate Q** – [GitHub](https://github.com/nate-q-136)
 
 ## 🙏 Acknowledgments
 
