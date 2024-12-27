@@ -116,7 +116,7 @@ rag_gemini_frontend/
 
 ## 🔗 Useful Links
 
-- **[Backend Repository](https://github.com/your-username/rag-gemini-backend)**
+- **[Backend Repository](https://github.com/nate-q-136/RAG-GEMINI-BE.git)**
 
 
 ## 🔒 Security Guidelines
