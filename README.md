@@ -1,4 +1,4 @@
-# RAG Gemini Frontend
+# GeChat Frontend
 
 A frontend application designed for chat systems leveraging Google Gemini Pro with Retrieval Augmented Generation (RAG) capabilities. This application allows users to interact with AI and upload documents for document-based conversations.
 
