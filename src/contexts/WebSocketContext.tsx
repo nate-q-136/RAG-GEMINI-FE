@@ -25,7 +25,12 @@ export const WebSocketProvider = ({ children }: { children: React.ReactNode }) =
 
   useEffect(() => {
     setMounted(true);
-    const ws = new WebSocket('ws://localhost:8000/ws/chat/2/');
+    
+
+    const sessionId = `${uuidv4()}`;
+    document.cookie = sessionId;
+
+    const ws = new WebSocket(`ws://localhost:8001/ws/chat/2/?sessionid=${sessionId}`);
     ws.onopen = () => {
       console.log('Connected to WebSocket');
       setIsConnected(true);
@@ -55,7 +60,12 @@ export const WebSocketProvider = ({ children }: { children: React.ReactNode }) =
     };
   }, []);
 
-  const sendMessage = useCallback((chatMode:string, content: string, attachments?: Object[]) => {
+  const sendMessage = useCallback((chatMode:string, content: string, attachments?:Array<(
+    {
+      file_name: string;
+      url: string;
+    }
+  )> ) => {
     setIsLoading(true);
     if (!socket || !isConnected) return;
 
@@ -65,6 +75,7 @@ export const WebSocketProvider = ({ children }: { children: React.ReactNode }) =
       role: 'user',
       mode: chatMode,
       timestamp: new Date(),
+      attachments
     };
 
     // Nếu có file đính kèm

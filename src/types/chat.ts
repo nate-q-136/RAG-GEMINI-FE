@@ -4,9 +4,11 @@ export interface Message {
   role: 'user' | 'assistant';
   mode?: string
   timestamp: Date;
-  attachments?: Array<{
-    name: string;
-    url: string;
-    type: string;
-  }>;
+  attachments?: Array<(
+    {
+      file_name: string;
+      url: string;
+    }
+
+  )>;
 } 

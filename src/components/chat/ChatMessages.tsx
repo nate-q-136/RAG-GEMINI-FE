@@ -73,14 +73,14 @@ const ChatMessages = ({ mode }: ChatMessagesProps) => {
                             ) : (
                                 <p className="whitespace-pre-wrap">{message.content}</p>
                             )}
-                            {message.attachments?.map((file) => (
+                            {message.attachments?.map((attachment) => (
                                 <div
-                                    key={file.name}
+                                    key={attachment.file_name}
                                     className={`text-sm mt-2 flex items-center gap-1 ${message.role === 'user' ? 'text-blue-100' : 'text-gray-500'
                                         }`}
                                 >
                                     <span>📎</span>
-                                    <span>{file.name}</span>
+                                    <span>{attachment.file_name}</span>
                                 </div>
                             ))}
                         </div>
