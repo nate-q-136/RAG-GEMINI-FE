@@ -15,7 +15,7 @@ const ChatInput = ({ mode }: ChatInputProps) => {
   const [message, setMessage] = useState('');
   const [attachments, setAttachments] = useState<File[]>([]);
   const [isLoading2, setIsLoading2] = useState(false);
-  const {sendMessage, isConnected, isLoading, setIsLoading } = useWebSocket();
+  const {sendMessage, isConnected, isLoading } = useWebSocket();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

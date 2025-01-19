@@ -7,7 +7,12 @@ import serverUrls from '@/backend/serverUrls';
 
 interface WebSocketContextType {
   messages: Message[];
-  sendMessage: (chatMode:string, content: string, attachments?: String[]) => void;
+  sendMessage: (chatMode:string, content: string, attachments?: Array<(
+    {
+      file_name: string;
+      url: string;
+    }
+  )>) => void;
   isConnected: boolean;
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
