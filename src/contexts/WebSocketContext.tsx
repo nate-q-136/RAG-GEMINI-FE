@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { Message } from '@/types/chat';
 import { v4 as uuidv4 } from 'uuid';
+import serverUrls from '@/backend/serverUrls';
 
 interface WebSocketContextType {
   messages: Message[];
@@ -30,7 +31,7 @@ export const WebSocketProvider = ({ children }: { children: React.ReactNode }) =
     const sessionId = `${uuidv4()}`;
     document.cookie = sessionId;
 
-    const ws = new WebSocket(`ws://localhost:8001/ws/chat/2/?sessionid=${sessionId}`);
+    const ws = new WebSocket(`${serverUrls.ws}/ws/chat/2/?sessionid=${sessionId}`);
     ws.onopen = () => {
       console.log('Connected to WebSocket');
       setIsConnected(true);
